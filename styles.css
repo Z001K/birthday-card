@@ -1,116 +1,124 @@
 /* Reset & Page Setup */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body, html {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        /* 3-Color Ombre Background */
-        background: linear-gradient(135deg, #ECB0EB 0%, #987FD5 20%, #64A0F1 40%, #2371BA 60%, #4A9082 80%, #C3F79F 100%);
-        font-family: 'Arial', sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+ * { box-sizing: border-box; margin: 0; padding: 0; }
+ body, html {
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+     /* 3-Color Ombre Background */
+     background: linear-gradient(135deg, #ECB0EB 0%, #987FD5 20%, #64A0F1 40%, #2371BA 60%, #4A9082 80%, #C3F79F 100%);
+     font-family: 'Arial', sans-serif;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
 
-    /* Animated Bouncing Text */
-    .title-text {
-        font-size: 3.5rem;
-        font-weight: bold;
-        color: #fff;
-        text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-        position: absolute;
-        top: 8%;
-        display: flex;
-        gap: 5px;
-    }
-    .title-text span {
-        display: inline-block;
-        animation: floatLetters 1.5s ease-in-out infinite alternate;
-    }
-    .title-text span:nth-child(even) { animation-delay: 0.3s; }
-    .title-text span:nth-child(odd) { animation-delay: 0.6s; }
-    
-    @keyframes floatLetters {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(-15px); }
-    }
-
-    /* Side Panels for Flowers */
-    .side-panel {
-        position: absolute;
-        width: 150px;
-        height: 100%;
-        top: 0;
-    }
-    .left-panel { left: 0; }
-    .right-panel { right: 0; }
-
-    /* Moonflower made in CSS */
-    .moonflower {
-        position: absolute;
-        bottom: 40px;
-        right: 10px;
-        width: 100px;
-        height: 100px;
-        animation: swayFlowers 4s ease-in-out infinite alternate-reverse;
-        transform-origin: bottom center;
-    }
-  .moonflower2 {
-        position: absolute;
-        top: 400px;
-        left: 50px;
-        width: 100px;
-        height: 100px;
-        animation: swayFlowers 4s ease-in-out infinite alternate-reverse;
-        transform-origin: bottom center;
-    }
-    .moonflower3 {
-        position: absolute;
-        top: 80px;
-        right: 10px;
-        width: 100px;
-        height: 100px;
-        animation: swayFlowers 4s ease-in-out infinite alternate-reverse;
-        transform-origin: bottom center;
-    }
-  .moonflower4 {
-        position: absolute;
-        top: 400px;
-        right: 50px;
-        width: 100px;
-        height: 100px;
-        animation: swayFlowers 4s ease-in-out infinite alternate-reverse;
-        transform-origin: bottom center;
-    }
-  .moonflower5 {
-        position: absolute;
-        top: 80px;
-        right: 10px;
-        width: 100px;
-        height: 100px;
-        animation: swayFlowers 4s ease-in-out infinite alternate-reverse;
-        transform-origin: bottom center;
-    }
+ /* Animated Bouncing Text */
+ .title-text {
+     font-size: 3.5rem;
+     font-weight: bold;
+     color: #fff;
+     text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+     position: absolute;
+     top: 8%;
+     display: flex;
+     gap: 5px;
+ }
+ .title-text span {
+     display: inline-block;
+     animation: floatLetters 1.5s ease-in-out infinite alternate;
+ }
+ .title-text span:nth-child(even) { animation-delay: 0.3s; }
+ .title-text span:nth-child(odd) { animation-delay: 0.6s; }
  
+ @keyframes floatLetters {
+     0% { transform: translateY(0); }
+     100% { transform: translateY(-15px); }
+ }
 
-    .petal {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background: #F7DDFA;
-        border-radius: 50% 50% 50% 50% / 10% 10% 90% 90%;
-        opacity: 0.9;
-        box-shadow: 0 0 10px #E58EEE;
+ /* Side Panels for Flowers */
+ .side-panel {
+     position: absolute;
+     width: 150px;
+     height: 100%;
+     top: 0;
+     pointer-events: none; 
+ }
+ .left-panel { left: 0; }
+ .right-panel { right: 0; }
+
+.moonflower, .moonflower2, .moonflower3, .moonflower4, .moonflower5 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    transform-origin: bottom center;
+    animation: swayFlowers 4s ease-in-out infinite alternate-reverse;
+}
+/* Individual Flower Placements (Using fluid % for better vertical flexibility) */
+.moonflower { bottom: 10%; right: 10px; }
+.moonflower2 { top: 50%; left: 30px; }
+.moonflower3 { top: 15%; right: 10px; }
+.moonflower4 { top: 50%; right: 30px; }
+.moonflower5 { top: 15%; left: 10px; }
+ 
+/* Petal Core Geometry */
+.petal {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #F7DDFA;
+    border-radius: 50% 50% 50% 50% / 10% 10% 90% 90%;
+    opacity: 0.9;
+    box-shadow: 0 0 10px #E58EEE;
+    left: 25px; /* Centers petals relative to the 100px flower container */
+    top: 25px;
+}
+
+.p1 { transform: rotate(0deg) translate(0, -25px); }
+.p2 { transform: rotate(72deg) translate(0, -25px); }
+.p3 { transform: rotate(144deg) translate(0, -25px); }
+.p4 { transform: rotate(216deg) translate(0, -25px); }
+.p5 { transform: rotate(288deg) translate(0, -25px); }
+
+@media (max-width: 768px) {
+    .side-panel {
+        width: 60px; /* Narrows the panels so they don't hit the center cake container */
+        opacity: 0.75; /* Softens them slightly into the background */
     }
-    .p1 { transform: rotate(0deg) translate(0, -25px); }
-    .p2 { transform: rotate(72deg) translate(0, -25px); }
-    .p3 { transform: rotate(144deg) translate(0, -25px); }
-    .p4 { transform: rotate(216deg) translate(0, -25px); }
-    .p5 { transform: rotate(288deg) translate(0, -25px); }
-    
 
+    /* Uniformly scales down the flowers using CSS transform so they match mobile screen scale */
+    .moonflower, .moonflower2, .moonflower3, .moonflower4, .moonflower5 {
+        width: 60px;
+        height: 60px;
+    }
 
+    /* Readjust details within the scaled container */
+    .petal {
+        width: 30px;
+        height: 30px;
+        left: 15px;
+        top: 15px;
+    }
+    .p1 { transform: rotate(0deg) translate(0, -15px); }
+    .p2 { transform: rotate(72deg) translate(0, -15px); }
+    .p3 { transform: rotate(144deg) translate(0, -15px); }
+    .p4 { transform: rotate(216deg) translate(0, -15px); }
+    .p5 { transform: rotate(288deg) translate(0, -15px); }
+
+    .flower-center {
+        width: 12px;
+        height: 12px;
+        top: 24px;
+        left: 24px;
+    }
+
+    /* Adjust placement coordinates specifically for tight mobile viewports */
+    .moonflower { bottom: 15%; right: -5px; }
+    .moonflower2 { top: 45%; left: 5px; }
+    .moonflower3 { top: 10%; right: -5px; }
+    .moonflower4 { top: 45%; right: 5px; }
+    .moonflower5 { top: 10%; left: -5px; }
+}
   
 
 /* Cake Built with CSS (Drops Tier by Tier) */
